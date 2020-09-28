@@ -1,11 +1,12 @@
 
 package com.natlusrun.filmsretrofit.data.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FilmModel {
+public class FilmModel implements Serializable {
 
     @SerializedName("id")
     @Expose

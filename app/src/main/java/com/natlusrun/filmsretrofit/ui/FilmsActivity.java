@@ -17,16 +17,19 @@ import com.natlusrun.filmsretrofit.R;
 import com.natlusrun.filmsretrofit.data.models.FilmModel;
 import com.natlusrun.filmsretrofit.data.network.GhibliService;
 import com.natlusrun.filmsretrofit.ui.adapters.FilmsAdapter;
+import com.natlusrun.filmsretrofit.ui.adapters.OnItemClick;
 
 import java.util.List;
 
-public class FilmsActivity extends AppCompatActivity implements View.OnClickListener {
+public class FilmsActivity extends AppCompatActivity {
 
     private Button openLesson;
     private List<FilmModel> films;
     private RecyclerView recyclerView;
     private Context context;
     FilmsAdapter filmsAdapter;
+
+    private final String TAG = "FilmsActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,17 +48,24 @@ public class FilmsActivity extends AppCompatActivity implements View.OnClickList
            public void onSuccess(List<FilmModel> list) {
 //               filmsAdapter.setFilmList(list);
                Log.d("ff", String.valueOf(list.size()));
-               if (list!= null){
-               filmsAdapter.setFilmList(list);}
+               filmsAdapter.setFilmList(list);
+               filmsAdapter.setOnItemClick(new OnItemClick() {
+                   @Override
+                   public void onItemViewClick(int position) {
+                       Intent intent = new Intent(FilmsActivity.this, FilmsInfoActivity.class);
+                       intent.putExtra("key", list.get(position).getId());
+                       startActivity(intent);
+                   }
+               });
+
            }
+
 
            @Override
            public void onFailure(Throwable t) {
                Log.d("ff", t.getMessage());
            }
        });
-
-
 
         openLesson.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,10 +74,5 @@ public class FilmsActivity extends AppCompatActivity implements View.OnClickList
                startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public void onClick(View v) {
-        
     }
 }
