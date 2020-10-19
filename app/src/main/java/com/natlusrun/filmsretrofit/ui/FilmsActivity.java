@@ -23,7 +23,7 @@ import java.util.List;
 
 public class FilmsActivity extends AppCompatActivity {
 
-    private Button openLesson;
+    private Button openLesson, openFromLocal;
     private List<FilmModel> films;
     private RecyclerView recyclerView;
     private Context context;
@@ -37,6 +37,7 @@ public class FilmsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_films);
 
         openLesson = findViewById(R.id.open_lesson_btn);
+        openFromLocal = findViewById(R.id.local_films_btn);
 
         recyclerView = findViewById(R.id.films_rv);
         filmsAdapter = new FilmsAdapter();
@@ -57,7 +58,7 @@ public class FilmsActivity extends AppCompatActivity {
                        startActivity(intent);
                    }
                });
-
+                  App.db.userDao().insertAll(list);
            }
 
 
@@ -72,6 +73,14 @@ public class FilmsActivity extends AppCompatActivity {
             public void onClick(View v) {
                Intent intent = new Intent(FilmsActivity.this, LessonActivity.class);
                startActivity(intent);
+            }
+        });
+
+        openFromLocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FilmsActivity.this, FavouritesActivity.class);
+                startActivity(intent);
             }
         });
     }

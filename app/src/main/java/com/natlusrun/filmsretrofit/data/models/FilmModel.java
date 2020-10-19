@@ -1,15 +1,25 @@
 
 package com.natlusrun.filmsretrofit.data.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
+@Entity
 public class FilmModel implements Serializable {
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
+    @NonNull
     private String id;
     @SerializedName("title")
     @Expose
@@ -31,18 +41,23 @@ public class FilmModel implements Serializable {
     private String rtScore;
     @SerializedName("people")
     @Expose
-    private List<String> people = null;
+    @Ignore
+    private List<String> people;
     @SerializedName("species")
     @Expose
-    private List<String> species = null;
+    @Ignore
+    private List<String> species;
     @SerializedName("locations")
     @Expose
-    private List<String> locations = null;
+    @Ignore
+    private List<String> locations;
     @SerializedName("vehicles")
     @Expose
-    private List<String> vehicles = null;
+    @Ignore
+    private List<String> vehicles;
     @SerializedName("url")
     @Expose
+    @Ignore
     private String url;
 
     public String getId() {

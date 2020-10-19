@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".ui.LessonActivity"/>
         <activity android:name=".ui.FilmsInfoActivity"/>
+        <activity android:name=".ui.FavouritesActivity"/>
     </application>
 
 </manifest>
