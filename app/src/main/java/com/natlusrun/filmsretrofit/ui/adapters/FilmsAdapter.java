@@ -21,6 +21,7 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmsViewHol
 
     public List<FilmModel> filmList = new ArrayList<>();
     public OnItemClick onItemClick;
+    public OnLongItemClick onLongItemClick;
 
     public void setFilmList(List<FilmModel> filmList) {
         this.filmList = filmList;
@@ -48,6 +49,10 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmsViewHol
         this.onItemClick = onItemClick;
     }
 
+    public void setOnLongItemClick(OnLongItemClick onLongItemClick) {
+        this.onLongItemClick = onLongItemClick;
+    }
+
     public class FilmsViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
@@ -63,6 +68,14 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmsViewHol
                 @Override
                 public void onClick(View v) {
                     onItemClick.onItemViewClick(getAdapterPosition());
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onLongItemClick.onLongItemViewClick(getAdapterPosition());
+                    return true;
                 }
             });
         }

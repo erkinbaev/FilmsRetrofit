@@ -15,13 +15,11 @@ import retrofit2.http.GET;
 @Dao
 public interface FilmDao {
 
-    @GET("films")
+
     @Query("SELECT * FROM filmmodel")
     List<FilmModel> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<FilmModel> filmModels);
+    void insertAll(FilmModel filmModel);
 
-    @Delete
-    void delete(FilmModel filmModel);
 }

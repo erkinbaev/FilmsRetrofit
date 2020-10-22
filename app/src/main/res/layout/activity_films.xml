@@ -13,10 +13,10 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <Button
-        android:id="@+id/local_films_btn"
+        android:id="@+id/fav_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Local Films"
+        android:text="Favourites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/open_lesson_btn" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="Open Lesson"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/local_films_btn"
+        app:layout_constraintStart_toEndOf="@id/fav_btn"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

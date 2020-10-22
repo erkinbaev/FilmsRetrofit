@@ -3,18 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/fav_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="film title"/>
 
-    <TextView
-        android:id="@+id/fav_dir_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="film direction"/>
+
+        <TextView
+            android:id="@+id/fav_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="film title" />
+
+        <TextView
+            android:id="@+id/fav_dir_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="film direction" />
+
+
 
 </LinearLayout>
